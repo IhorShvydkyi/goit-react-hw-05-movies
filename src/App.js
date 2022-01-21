@@ -1,12 +1,12 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Navigation from "./Components/Navigation/Navigation";
-
+import AppBar from "./Components/Navigation/Navigation";
+import Container from "./Components/Container/Container";
 function App() {
   return (
-    <div className="App">
-      <Navigation />
-    </div>
+    <Container>
+      <AppBar />
+    </Container>
   );
 }
 export default App;

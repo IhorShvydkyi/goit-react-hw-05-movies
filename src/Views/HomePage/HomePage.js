@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import * as apiServices from "../../Services/ApiService";
-export default function HomePage() {
+
+const HomePage = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -16,4 +17,6 @@ export default function HomePage() {
       </ul>
     </>
   );
-}
+};
+
+export default HomePage;

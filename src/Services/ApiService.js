@@ -7,3 +7,11 @@ export function FetchPopularMovies() {
     .then((resp) => resp.json())
     .then((data) => data.results);
 }
+
+export function FetchMoviesByQuery(query) {
+  return fetch(
+    `${BASE_URL}/search/movie?api_key=${KEY}&query=${query}&language=en-US&page=1&include_adult=false`
+  )
+    .then((resp) => resp.json())
+    .then((data) => data.results);
+}

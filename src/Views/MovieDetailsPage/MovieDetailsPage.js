@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import {
   Routes,
   Route,
@@ -11,6 +11,7 @@ import * as apiService from "../../Services/ApiService";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MoviePreview from "../../Components/MoviePreview/MoviePreview";
+import MovieAdditionalInformation from "../../Components/MovieAdditionalInformation/MovieAdditionalInformation";
 import Cast from "../../Components/Cast/Cast";
 import Reviews from "../../Components/Reviews/Reviews";
 
@@ -46,13 +47,15 @@ const MovieDetailsPage = () => {
     <>
       {error && <p>'Something went wrong :('</p>}
       {/* {loader && <Spiner />} */}
-      {<MoviePreview movie={movie} />}
-      <Routes>
-        {/* <Route to={`/movies/:movieId/cast`} element={<Cast />} />
-				<Route to={`/movies/:movieId/reviews`} element={<Reviews />} /> */}
+      {movie && <MoviePreview movie={movie} />}
+      {movie && <MovieAdditionalInformation />}
+      <Suspense fallback={<div>Loading..</div>}>
+        <Routes>
+          <Route path="/movies/:movieId/cast" element={<Cast />} />
 
-        <Route />
-      </Routes>
+          <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+        </Routes>
+      </Suspense>
     </>
   );
 };

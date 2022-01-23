@@ -1,4 +1,5 @@
 import "./App.css";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Container from "./Components/Container/Container";
 import AppBar from "./Components/Navigation/Navigation";
@@ -11,13 +12,16 @@ function App() {
   return (
     <Container>
       <AppBar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
-        {/* <Route path="/movies/:movieId/cast" element={<Cast />} />
-				<Route path="/movies/:movieId/reviews" element={<Reviews />} /> */}
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:movieId/" element={<MovieDetailsPage />}>
+            <Route path="/movies/:movieId/cast" element={<Cast />} />
+            <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </Container>
   );
 }

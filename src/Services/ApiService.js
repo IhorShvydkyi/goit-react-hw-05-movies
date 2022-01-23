@@ -4,13 +4,23 @@ const BASE_URL = "https://api.themoviedb.org/3";
 export function FetchPopularMovies() {
   return fetch(`${BASE_URL}/trending/all/day?api_key=${KEY}
 `)
-    .then((resp) => resp.json())
+    .then((response) => response.json())
     .then((data) => data.results);
 }
 
 export function fetchMoviesByQuery(query) {
   return fetch(
-    `${BASE_URL}/search/movie?api_key=${KEY}&query=${query}&language=en-US&page=1&include_adult=false`
+    `${BASE_URL}/search/movie/?api_key=${KEY}&query=${query}&language=en-US&page=1&include_adult=false`
+  ).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  });
+}
+export function fetchMoviesByMovieId(movieId) {
+  return fetch(
+    `${BASE_URL}/movie/${movieId}?api_key=${KEY}&language=en-US&page=1&`
   ).then((response) => {
     if (response.ok) {
       return response.json();

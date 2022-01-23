@@ -12,8 +12,7 @@ const HomePage = () => {
     <>
       <h1>Tranding today</h1>
       <ul>
-        {movies &&
-          movies.map((movie) => <li key={movie.id}>{movie.original_title}</li>)}
+        {movies && movies.map((movie) => <li key={movie.id}>{movie.title}</li>)}
       </ul>
     </>
   );

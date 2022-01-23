@@ -8,10 +8,13 @@ export function FetchPopularMovies() {
     .then((data) => data.results);
 }
 
-export function FetchMoviesByQuery(query) {
+export function fetchMoviesByQuery(query) {
   return fetch(
     `${BASE_URL}/search/movie?api_key=${KEY}&query=${query}&language=en-US&page=1&include_adult=false`
-  )
-    .then((resp) => resp.json())
-    .then((data) => data.results);
+  ).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  });
 }

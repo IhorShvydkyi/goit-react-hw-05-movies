@@ -4,6 +4,7 @@ import Container from "./Components/Container/Container";
 import AppBar from "./Components/Navigation/Navigation";
 import HomePage from "./Views/HomePage/HomePage";
 import MoviesPage from "./Views/MoviesPage/MoviesPage";
+import MovieDetailsPage from "./Views/MovieDetailsPage/MovieDetailsPage";
 function App() {
   return (
     <Container>
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
       </Routes>
     </Container>
   );

@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Spiner from "../Loader/Loader";
+import { Error } from "../../Views/HomePage/HomePage.styled";
+import { CastView, CastList, CastListItem, CastImg } from "./Cast.Styled";
+
 import * as apiService from "../../Services/ApiService";
 
 const Cast = () => {
@@ -32,24 +37,24 @@ const Cast = () => {
 
   return (
     <>
-      {error && <p>Sorry. Something is wrong </p>}
-      {/* {loader && <Spiner />} */}
+      {error && <Error>Sorry. Something is wrong </Error>}
+      {loader && <Spiner />}
       {cast && (
-        <div>
-          <ul>
+        <CastView>
+          <CastList>
             {cast.map(({ id, profile_path, name, character }) => (
-              <li key={id}>
+              <CastListItem key={id}>
                 {profile_path ? (
-                  <img src={`${photo}${profile_path}`} alt={name} />
+                  <CastImg src={`${photo}${profile_path}`} alt={name} />
                 ) : (
-                  <img src={defaultPhoto} alt="" />
+                  <CastImg src={defaultPhoto} alt="" />
                 )}
                 {name}
                 <span>Character: {character}</span>
-              </li>
+              </CastListItem>
             ))}
-          </ul>
-        </div>
+          </CastList>
+        </CastView>
       )}
     </>
   );

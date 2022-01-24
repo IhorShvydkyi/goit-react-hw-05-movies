@@ -3,7 +3,6 @@ const Navigation = () => {
   return (
     <nav>
       <StyledNavLink to="/">Home</StyledNavLink>
-      <br />
       <StyledNavLink to="/movies">Movies</StyledNavLink>
     </nav>
   );

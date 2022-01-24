@@ -1,10 +1,18 @@
 import { useState, useEffect } from "react";
 import { useParams, useLocation, Outlet, NavLink } from "react-router-dom";
-import * as apiService from "../../Services/ApiService";
-// import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as apiService from "../../Services/ApiService";
 import MoviePreview from "../../Components/MoviePreview/MoviePreview";
+import Spiner from "../../Components/Loader/Loader";
+import { Error } from "../HomePage/HomePage.styled";
+import {
+  AdditionalInformation,
+  MovieDetails,
+  DetailsNav,
+  StyledNavLink,
+} from "./MovieDetailsPage.styled";
 
 const MovieDetailsPage = () => {
   const location = useLocation();
@@ -35,28 +43,32 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      {error && <p>'Something went wrong :('</p>}
-      {/* {loader && <Spiner />} */}
+      {error && <Error>'Something went wrong :('</Error>}
+      {loader && <Spiner />}
       {movie && <MoviePreview movie={movie} />}
 
-      <p>Additional information</p>
-      {movie && (
-        <div>
-          <NavLink
-            to={`/movies/${movie.id}/cast`}
-            state={{ from: location.state.from }}
-          >
-            Cast
-          </NavLink>
-          <NavLink
-            to={`/movies/${movie.id}/reviews`}
-            state={{ from: location.state.from }}
-          >
-            Reviews
-          </NavLink>
-        </div>
-      )}
-      <Outlet />
+      <AdditionalInformation>
+        <DetailsNav>
+          <p>Additional information</p>
+          {movie && (
+            <MovieDetails>
+              <StyledNavLink
+                to={`/movies/${movie.id}/cast`}
+                state={{ from: location.state.from }}
+              >
+                Cast
+              </StyledNavLink>
+              <StyledNavLink
+                to={`/movies/${movie.id}/reviews`}
+                state={{ from: location.state.from }}
+              >
+                Reviews
+              </StyledNavLink>
+              <Outlet />
+            </MovieDetails>
+          )}
+        </DetailsNav>
+      </AdditionalInformation>
     </>
   );
 };

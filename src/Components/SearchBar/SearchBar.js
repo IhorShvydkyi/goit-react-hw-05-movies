@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  SearchbarStyled,
+  SearchForm,
+  SearchFormInput,
+  SearchFormButton,
+} from "./SearchBar.styled";
 
 const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
@@ -19,18 +25,18 @@ const SearchBar = ({ onSubmit }) => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
+      <SearchForm onSubmit={handleSubmit}>
+        <SearchFormInput
           type="text"
           placeholder="Your favorite movie"
           value={query}
           name="query"
           onChange={handleNameChange}
         />
-        <button type="submit">
+        <SearchFormButton type="submit">
           <span>Search</span>
-        </button>
-      </form>
+        </SearchFormButton>
+      </SearchForm>
     </div>
   );
 };

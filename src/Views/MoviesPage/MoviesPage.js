@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Error } from "../HomePage/HomePage.styled";
 import * as apiService from "../../Services/ApiService";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import MoviesList from "../../Components/MoviesList/MoviesList";
@@ -58,7 +59,7 @@ const MoviesPage = () => {
 
   return (
     <>
-      {error && <p>Sorry, something went wrong :( </p>}
+      {error && <Error>Sorry, something went wrong </Error>}
       {<SearchBar onSubmit={onSearchQuery} />}
       {movies && <MoviesList movies={movies} />}
       <ToastContainer />

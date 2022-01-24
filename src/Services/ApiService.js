@@ -38,3 +38,13 @@ export function fetchMovieCast(movieId) {
     throw new Error(response.statusText);
   });
 }
+export function fetchMovieReviews(movieId) {
+  return fetch(
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${KEY}&language=en-US`
+  ).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  });
+}

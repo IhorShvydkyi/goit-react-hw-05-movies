@@ -28,3 +28,13 @@ export function fetchMoviesByMovieId(movieId) {
     throw new Error(response.statusText);
   });
 }
+export function fetchMovieCast(movieId) {
+  return fetch(
+    `${BASE_URL}/movie/${movieId}/credits?api_key=${KEY}&language=en-US`
+  ).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  });
+}

@@ -1,29 +1,29 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
-export const AdditionalInformation = styled.div`
+export const AdditionalInformationTitle = styled.p`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 `;
 
-export const MovieDetails = styled.nav`
-  display: flex;
-  justify-content: space-between;
-`;
-export const DetailsNav = styled.div`
+export const MovieNav = styled.nav`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  align-items: center;
 `;
 export const StyledNavLink = styled(NavLink)`
+  margin: 10px;
   padding: 10px;
   font-size: 15px;
   font-weight: 400;
   color: #000;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   text-decoration: none;
+  width: 75px;
 
   border: 1px solid black;
   border-radius: 2px;
-  background-color: #d6d1d0;
 `;

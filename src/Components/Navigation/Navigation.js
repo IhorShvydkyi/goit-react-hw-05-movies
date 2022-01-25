@@ -1,10 +1,10 @@
-import { StyledNavLink } from "./Navigation.styled";
+import { StyledNavLink, Nav } from "./Navigation.styled";
 const Navigation = () => {
   return (
-    <nav>
+    <Nav>
       <StyledNavLink to="/">Home</StyledNavLink>
       <StyledNavLink to="/movies">Movies</StyledNavLink>
-    </nav>
+    </Nav>
   );
 };
 export default Navigation;

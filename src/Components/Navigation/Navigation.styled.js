@@ -5,12 +5,16 @@ export const StyledNavLink = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
   padding: 12px;
-  font-weight: 500;
+  font-weight: 600;
   color: #2a363b;
-  font-size: 18px;
-  &:active {
+  font-size: 25px;
+  &:active,
+  &:hover {
     color: #2196f3;
-    composes: link;
-    border-bottom: 2px solid #2196f3;
   }
+`;
+
+export const Nav = styled.nav`
+  display: flex;
+  justify-content: center;
 `;

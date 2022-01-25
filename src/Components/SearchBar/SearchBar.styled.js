@@ -2,11 +2,8 @@ import styled from "@emotion/styled";
 
 export const SearchForm = styled.form`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 600px;
-  background-color: #fff;
-  border-radius: 3px;
   overflow: hidden;
 `;
 
@@ -15,7 +12,7 @@ export const SearchFormButton = styled.button`
   width: 100px;
   height: 28px;
   margin-left: 10px;
-  border: 1px solid rgb(63, 36, 88);
+  border: 1px solid black;
   background-image: url("https://cdn-icons-png.flaticon.com/512/117/117848.png");
   background-size: 10%;
   background-repeat: no-repeat;
@@ -31,10 +28,8 @@ export const SearchFormButton = styled.button`
 `;
 
 export const SearchFormInput = styled.input`
-  display: inline-block;
-  font-size: 18px;
-  padding: 0 5px;
-  width: 170px;
-  height: 25px;
-  margin: 13px 0 13px 50px;
+  display: flex;
+  width: 350px;
+  height: auto;
+  margin-bottom: 20px;
 `;

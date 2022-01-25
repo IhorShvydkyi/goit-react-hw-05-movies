@@ -30,3 +30,14 @@ export const GenresListItem = styled.li`
   display: flex;
   justify-content: flex-start;
 `;
+
+export const ButtonBack = styled.button`
+  margin-top: 4px;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 4px;
+  border-color: black;
+  background-color: #fff;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+`;

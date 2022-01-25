@@ -8,9 +8,8 @@ import MoviePreview from "../../Components/MoviePreview/MoviePreview";
 import Spiner from "../../Components/Loader/Loader";
 import { Error } from "../HomePage/HomePage.styled";
 import {
-  AdditionalInformation,
-  MovieDetails,
-  DetailsNav,
+  AdditionalInformationTitle,
+  MovieNav,
   StyledNavLink,
 } from "./MovieDetailsPage.styled";
 
@@ -47,28 +46,28 @@ const MovieDetailsPage = () => {
       {loader && <Spiner />}
       {movie && <MoviePreview movie={movie} />}
 
-      <AdditionalInformation>
-        <DetailsNav>
-          <p>Additional information</p>
-          {movie && (
-            <MovieDetails>
-              <StyledNavLink
-                to={`/movies/${movie.id}/cast`}
-                state={{ from: location.state.from }}
-              >
-                Cast
-              </StyledNavLink>
-              <StyledNavLink
-                to={`/movies/${movie.id}/reviews`}
-                state={{ from: location.state.from }}
-              >
-                Reviews
-              </StyledNavLink>
-              <Outlet />
-            </MovieDetails>
-          )}
-        </DetailsNav>
-      </AdditionalInformation>
+      <AdditionalInformationTitle>
+        Additional information
+      </AdditionalInformationTitle>
+      <div>
+        {movie && (
+          <MovieNav>
+            <StyledNavLink
+              to={`/movies/${movie.id}/cast`}
+              state={{ from: location.state.from }}
+            >
+              Cast
+            </StyledNavLink>
+            <StyledNavLink
+              to={`/movies/${movie.id}/reviews`}
+              state={{ from: location.state.from }}
+            >
+              Reviews
+            </StyledNavLink>
+            <Outlet />
+          </MovieNav>
+        )}
+      </div>
     </>
   );
 };

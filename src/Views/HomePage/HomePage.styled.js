@@ -8,9 +8,11 @@ export const Error = styled.p`
   border-bottom: 2px solid tomato;
 `;
 export const HomePageTitle = styled.h2`
-  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
   font-weight: 500;
-  color: #3f51b5;
+  color: #089c5c;
 
   padding: 0 50px;
 `;

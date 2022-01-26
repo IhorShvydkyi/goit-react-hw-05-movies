@@ -14,7 +14,7 @@ export function FetchPopularMovies() {
 
 export function fetchMoviesByQuery(query) {
   return fetch(
-    `${BASE_URL}/search/movie/?api_key=${KEY}&query=${query}&language=en-US&page=1&include_adult=false`
+    `${BASE_URL}/search/movie?api_key=${KEY}&query=${query}&language=en-US&page=1&include_adult=false`
   ).then((response) => {
     if (response.ok) {
       return response.json();
